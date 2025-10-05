@@ -183,3 +183,32 @@ if (document.body.id === 'page4') {
         });
     });
 }
+// --- Page 5: Floating Light Particles and Final Music ---
+if (document.body.id === 'page5') {
+    const hopefulSound = document.getElementById('hopeful-sound');
+    if (hopefulSound) {
+        // Bring the music to full, clear volume for the conclusion
+        hopefulSound.volume = 0.7;
+    }
+    
+    // Create a container for the particles so they don't clutter the body
+    const particleContainer = document.createElement('div');
+    document.body.appendChild(particleContainer);
+    
+    // Generate 25 particles
+    for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'light-particle';
+
+        // Give each particle a random horizontal position and size
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.width = `${(Math.random() * 5) + 2}px`;
+        particle.style.height = particle.style.width;
+
+        // Randomize the animation duration and delay to make them float at different speeds
+        particle.style.animationDuration = `${(Math.random() * 10) + 8}s`; // 8 to 18 seconds
+        particle.style.animationDelay = `${Math.random() * 8}s`;
+
+        particleContainer.appendChild(particle);
+    }
+}

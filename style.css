@@ -253,3 +253,31 @@ body {
     color: #fff;
     border-color: #333;
 }
+/* --- Title Page Lights --- */
+#title-page {
+    position: relative; /* Needed for absolute positioning of particles */
+    overflow: hidden; /* Hide particles that go off-screen */
+}
+
+#title-page .light-particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4); /* Softer white */
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Subtle glow */
+    pointer-events: none;
+    animation: float-and-fade 15s linear infinite; /* New animation */
+    z-index: 0; /* Make sure they are behind the title card */
+}
+
+@keyframes float-and-fade {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% {
+        transform: translateY(-10vh) translateX(50px);
+        opacity: 0;
+    }
+}

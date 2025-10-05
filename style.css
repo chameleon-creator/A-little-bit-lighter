@@ -324,3 +324,26 @@ body {
         opacity: 0;
     }
 }
+/* --- Page 5 Final Text Animation --- */
+
+.floating-text {
+    /* This tells the browser to apply our new animation */
+    animation: float-and-fade-text 12s ease-in-out forwards;
+}
+
+@keyframes float-and-fade-text {
+    /* The text starts here: fully visible and in its normal position */
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    /* At 60% of the way through the animation, it is still visible */
+    60% {
+        opacity: 1;
+    }
+    /* The text ends here: floated up by 100 pixels and completely faded out */
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}

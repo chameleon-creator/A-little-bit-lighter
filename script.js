@@ -11,7 +11,34 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeEventListener('click', startMusic);
     }
     document.body.addEventListener('click', startMusic);
+// --- Title Page: Floating Lights ---
+    if (document.body.id === 'title-page') {
+        const hopefulSound = document.getElementById('hopeful-sound');
+        if (hopefulSound) {
+            hopefulSound.volume = 0.4; // Soft background music
+        }
 
+        const particleCount = 25; // Number of particles
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'light-particle';
+            
+            // Random size for particles
+            const size = Math.random() * 8 + 4; // 4px to 12px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random starting position (off-screen bottom)
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100 + 100}vh`; // Start below viewport
+            
+            // Randomize animation duration and delay for varied movement
+            particle.style.animationDuration = `${Math.random() * 10 + 10}s`; // 10-20s
+            particle.style.animationDelay = `${Math.random() * 10}s`; // 0-10s delay
+
+            document.body.appendChild(particle);
+        }
+    }
 
     // --- Page 1: Jittery Text ---
     if (document.body.id === 'page1') {

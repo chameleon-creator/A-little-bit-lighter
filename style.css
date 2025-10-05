@@ -82,3 +82,41 @@ body {
 
 /* --- Page 5 Styles --- */
 #page5 { background-color: #f0f4f8; color: #333; }
+/* --- Page 2 Styles --- */
+#page2 { 
+    background-color: #151515; 
+    color: #666; 
+}
+
+.phone-screen {
+    width: 250px;
+    height: 450px;
+    border: 8px solid #333;
+    border-radius: 20px;
+    background-color: #000;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+/* This pseudo-element will create the flashing effect */
+.phone-screen::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        #ff0000, #0000ff, #ffff00, #ff0000
+    ); /* A jarring mix of primary colors */
+    opacity: 0.1;
+    /* The animation that makes it flash */
+    animation: image-flash 2s infinite steps(1); 
+}
+
+@keyframes image-flash {
+    0% { opacity: 0.05; }
+    25% { transform: rotate(90deg); }
+    50% { opacity: 0.1; }
+    75% { transform: rotate(-90deg); }
+    100% { opacity: 0.05; }
+}

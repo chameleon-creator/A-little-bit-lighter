@@ -1,1 +1,84 @@
+/* --- Global Styles --- */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    transition: background-color 2s ease;
+}
+.page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+.stanza {
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    max-width: 600px;
+}
+.next-link {
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: #888;
+    text-decoration: none;
+}
 
+/* --- Page 1 Styles --- */
+#page1 { background-color: #1a1a1a; color: #777; }
+.jitter-text { transition: transform 0.1s ease; }
+
+/* --- Page 2 Styles --- */
+#page2 { background-color: #151515; color: #666; }
+.phone-screen {
+    width: 250px;
+    height: 450px;
+    border: 8px solid #333;
+    border-radius: 20px;
+    background-color: #000;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+    animation: image-flash 2s infinite steps(1);
+}
+@keyframes image-flash {
+    0% { background-color: #050505; }
+    50% { background-color: #111; }
+}
+
+/* --- Page 3 Styles --- */
+#page3 { background-color: #222; color: #888; }
+#page3 .instruction { color: #555; margin-top: 1rem; }
+.light-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fffaf0;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: fade-and-float 4s ease-out forwards;
+}
+@keyframes fade-and-float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-200px); opacity: 0; }
+}
+
+/* --- Page 4 Styles --- */
+#page4 { background-color: #4a4a52; color: #ccc; }
+#page4 .stanza p { cursor: pointer; transition: color 0.3s ease; }
+#page4 .stanza p:hover { color: #fff; }
+#image-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+/* --- Page 5 Styles --- */
+#page5 { background-color: #f0f4f8; color: #333; }

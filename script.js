@@ -98,3 +98,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+// --- Page 2: Louder Static and Faster Flashing on Scroll ---
+if (document.body.id === 'page2') {
+    const staticSound = document.getElementById('static-sound');
+    const phoneScreen = document.querySelector('.phone-screen');
+
+    if (staticSound) {
+        // Set a base volume for the static
+        staticSound.volume = 0.4;
+
+        // Listen for the scroll event
+        window.addEventListener('scroll', () => {
+            // Calculate how far down the page the user has scrolled (from 0 to 1)
+            const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            
+            // Increase the volume based on scroll, maxing out at 0.8
+            staticSound.volume = 0.4 + (scrollPercent * 0.4);
+
+            // Decrease the animation duration to speed it up, min speed 0.2s
+            const newDuration = 2 - (scrollPercent * 1.8);
+            phoneScreen.style.animationDuration = Math.max(0.2, newDuration) + 's';
+        });
+    }
+}

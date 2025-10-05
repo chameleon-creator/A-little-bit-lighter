@@ -121,3 +121,39 @@ if (document.body.id === 'page2') {
         });
     }
 }
+// --- Page 3: Click to Add Light and Change Sound ---
+if (document.body.id === 'page3') {
+    const staticSound = document.getElementById('static-sound');
+    const hopefulSound = document.getElementById('hopeful-sound');
+    let staticVolume = 0.7; // Start with loud static
+    let hopefulVolume = 0;   // Start with silent hopeful music
+
+    // Set initial volumes
+    if (staticSound) staticSound.volume = staticVolume;
+    if (hopefulSound) hopefulSound.volume = hopefulVolume;
+
+    // Listen for clicks anywhere on the page
+    document.body.addEventListener('click', (e) => {
+        // Create a new div element for our particle
+        const particle = document.createElement('div');
+        particle.className = 'light-particle';
+
+        // Position the particle where the user clicked
+        particle.style.left = `${e.clientX}px`;
+        particle.style.top = `${e.clientY}px`;
+        
+        // Add the particle to the page
+        document.body.appendChild(particle);
+
+        // --- Audio Transition ---
+        // With each click, decrease static and increase hopeful music
+        if (staticVolume > 0) staticVolume -= 0.05;
+        if (hopefulVolume < 0.5) hopefulVolume += 0.02; // Increase slower for a gentle fade-in
+        
+        if (staticSound) staticSound.volume = Math.max(0, staticVolume);
+        if (hopefulSound) hopefulSound.volume = Math.min(0.5, hopefulVolume);
+
+        // Remove the particle from the page after its animation finishes
+        setTimeout(() => particle.remove(), 4000);
+    });
+}

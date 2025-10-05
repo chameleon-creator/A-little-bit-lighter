@@ -120,3 +120,39 @@ body {
     75% { transform: rotate(-90deg); }
     100% { opacity: 0.05; }
 }
+/* --- Page 3 Styles --- */
+#page3 { 
+    background-color: #222; 
+    color: #888; 
+    cursor: pointer; /* Change the cursor to indicate the page is clickable */
+}
+#page3 .instruction { 
+    color: #555; 
+    margin-top: 1rem; 
+    font-style: italic;
+}
+
+/* This is the style for the light particles we will create with JavaScript */
+.light-particle {
+    position: absolute; /* Allows us to place it anywhere on the screen */
+    width: 10px;
+    height: 10px;
+    background-color: #fffaf0; /* A soft, warm white */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fffaf0, 0 0 12px #ffefd5; /* Creates a glow */
+    pointer-events: none; /* Prevents particles from interfering with clicks */
+    
+    /* This animation makes them float up and fade out */
+    animation: fade-and-float 4s ease-out forwards;
+}
+
+@keyframes fade-and-float {
+    from { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateY(-200px); 
+        opacity: 0; 
+    }
+}

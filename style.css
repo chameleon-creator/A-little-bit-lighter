@@ -185,3 +185,26 @@ body {
     pointer-events: none; /* Allows clicks to pass through it */
     z-index: -1; /* Ensures it's in the background */
 }
+/* --- Page 5 Styles --- */
+#page5 { 
+    background-color: #f0f4f8; /* A very light, airy blue-gray */
+    color: #333; /* Dark, readable text */
+    overflow: hidden; /* Prevent scrollbars from appearing due to particles */
+}
+
+/* We can reuse the .light-particle style from page 3, but we'll add a new animation for this page */
+#page5 .light-particle {
+    /* This animation makes them float up the entire screen, on a loop */
+    animation: float-up 10s linear infinite;
+}
+
+@keyframes float-up {
+    from {
+        transform: translateY(100vh); /* Start just below the screen */
+        opacity: 0.7;
+    }
+    to {
+        transform: translateY(-10vh); /* End just above the screen */
+        opacity: 0.7;
+    }
+}

@@ -157,3 +157,29 @@ if (document.body.id === 'page3') {
         setTimeout(() => particle.remove(), 4000);
     });
 }
+// --- Page 4: Hover to Reveal Images ---
+if (document.body.id === 'page4') {
+    const hopefulSound = document.getElementById('hopeful-sound');
+    if (hopefulSound) {
+        // Make the hopeful music a bit louder now
+        hopefulSound.volume = 0.5;
+    }
+
+    const hoverElements = document.querySelectorAll('.hover-reveal');
+    const imageContainer = document.getElementById('image-container');
+    
+    // Loop through each line of the poem
+    hoverElements.forEach(el => {
+        // Add an event listener for when the mouse enters the text
+        el.addEventListener('mouseenter', () => {
+            const imageUrl = el.getAttribute('data-image'); // Get the image path
+            imageContainer.style.backgroundImage = `url(${imageUrl})`; // Set the background
+            imageContainer.style.opacity = 0.3; // Fade the image in
+        });
+        
+        // Add an event listener for when the mouse leaves the text
+        el.addEventListener('mouseleave', () => {
+            imageContainer.style.opacity = 0; // Fade the image out
+        });
+    });
+}

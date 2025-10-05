@@ -226,7 +226,22 @@ if (document.body.id === 'page5') {
     for (let i = 0; i < 25; i++) {
         const particle = document.createElement('div');
         particle.className = 'light-particle';
+// --- Add this new part for the sparkle effect on click ---
+    document.body.addEventListener('click', (e) => {
+        // Create a new div element for our sparkle
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
 
+        // Position the sparkle where the user clicked
+        sparkle.style.left = `${e.clientX}px`;
+        sparkle.style.top = `${e.clientY}px`;
+        
+        // Add the sparkle to the page
+        document.body.appendChild(sparkle);
+
+        // Remove the sparkle from the page after its animation finishes (500ms)
+        setTimeout(() => sparkle.remove(), 500);
+    });
         // Give each particle a random horizontal position and size
         particle.style.left = `${Math.random() * 100}vw`;
         particle.style.width = `${(Math.random() * 5) + 2}px`;
